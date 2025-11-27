@@ -147,3 +147,52 @@ nav span {
     background: #764ba2;
     color: white;
 }
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* 2. The Icon styling */
+.input-icon {
+  position: absolute;
+  left: 15px; /* Position inside the left of the input */
+  color: #764ba2;
+  font-size: 1.1rem;
+  z-index: 10; /* Ensure it sits on top */
+  pointer-events: none; /* Clicks pass through to the input */
+}
+
+/* 3. Modify existing input styling to make room for icon */
+.simple-form input {
+  width: 100%;
+  padding: 14px 15px 14px 45px; /* Increase Left Padding (45px) to clear the icon */
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background: #f4f7fc;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Focus State */
+.simple-form input:focus {
+  outline: none;
+  border-color: #764ba2;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(118, 75, 162, 0.15);
+}
+
+/* Error Banner styling */
+.error-banner {
+  background-color: #fee2e2;
+  color: #dc2626;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  border: 1px solid #fca5a5;
+}

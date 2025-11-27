@@ -1,6 +1,6 @@
 from sqlmodel import SQLModel, Session, select
 from database import engine
-from models import Faculty, Project, Student, Skill, StudentSkill, ProjectAllocation, Department
+from models import Faculty, Project, Student, Skill, StudentSkill, ProjectAllocation, Department, User
 from datetime import date
 
 def init_db():
@@ -55,6 +55,21 @@ def init_db():
 
         session.commit()
         print("Sample data inserted.")
+
+        # Admin
+        session.add(User(email="admin@uni.edu", password="admin", role="admin"))
+
+        # Faculty Users (Alice as Head, Bob as Guide)
+        session.add(User(email="alice@uni.edu", password="1234", role="head"))
+        session.add(User(email="bob@uni.edu", password="1234", role="guide"))
+
+        # Student Users
+        session.add(User(email="john@uni.edu", password="1234", role="student"))
+        session.add(User(email="jane@uni.edu", password="1234", role="student"))
+        session.add(User(email="mike@uni.edu", password="1234", role="student"))
+
+        session.commit()
+        print("Data initialized.")
 
 if __name__ == "__main__":
     init_db()
